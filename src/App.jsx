@@ -19,6 +19,10 @@ const artistImages = [
   'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&h=600&fit=crop',
 ]
   const [visibleSections, setVisibleSections] = useState(new Set())
+  const [displayText, setDisplayText] = useState('')
+  const [profIndex, setProfIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   const t = LANGUAGES[lang]
   const observerRef = useRef(null)
@@ -41,6 +45,31 @@ const artistImages = [
     document.querySelectorAll('[data-section]').forEach((el) => observerRef.current.observe(el))
     return () => observerRef.current?.disconnect()
   }, [])
+
+  useEffect(() => {
+    const professions = t.artistTypes.types.map(type => type.title)
+    const current = professions[profIndex]
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        if (charIndex < current.length) {
+          setDisplayText(current.slice(0, charIndex + 1))
+          setCharIndex(charIndex + 1)
+        } else {
+          const pause = setTimeout(() => setIsDeleting(true), 2000)
+          return () => clearTimeout(pause)
+        }
+      } else {
+        if (charIndex > 0) {
+          setDisplayText(current.slice(0, charIndex - 1))
+          setCharIndex(charIndex - 1)
+        } else {
+          setIsDeleting(false)
+          setProfIndex((profIndex + 1) % professions.length)
+        }
+      }
+    }, isDeleting ? 40 : 80)
+    return () => clearTimeout(timer)
+  }, [charIndex, isDeleting, profIndex, lang])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -104,15 +133,40 @@ const artistImages = [
 
       {/* HERO */}
       <section id="hero" data-section="hero" className={`section hero-section ${isVisible('hero') ? 'visible' : ''}`}>
-        <div className="hero-bg"></div>
+        <div className="hero-bg">
+          <div className="hero-gradient-bg"></div>
+          <div className="hero-particles">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="hero-particle" style={{
+                width: `${200 + i * 80}px`,
+                height: `${200 + i * 80}px`,
+                top: `${15 + i * 12}%`,
+                left: `${10 + i * 14}%`,
+                animationDelay: `${i * 2}s`,
+                animationDuration: `${8 + i * 2}s`,
+              }}></div>
+            ))}
+          </div>
+        </div>
+        {/* Pour ajouter une vidéo de fond : décommente le bloc ci-dessous et mets ton fichier .mp4 dans /public/video/ */}
+        {/* <div className="hero-bg">
+          <video autoPlay muted loop playsInline className="hero-video" poster="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=800&fit=crop">
+            <source src="/video/ton-fichier.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-video-overlay"></div>
+        </div> */}
         <div className="hero-content">
           <div className="hero-badge">{t.hero.badge}</div>
           <h1 className="hero-title">
             {t.hero.lines.map((line, i) => (
-              <span key={i} className={`hero-line ${i === 1 ? 'gradient-text' : ''} ${i === 3 ? 'gold-text' : ''}`}>
+              <span key={i} className={`hero-line ${i === 1 ? 'gradient-text' : ''}`}>
                 {line}
               </span>
             ))}
+            <span className="hero-line typing-line">
+              <span className="typing-text">{displayText}</span>
+              <span className="typing-cursor">|</span>
+            </span>
           </h1>
           <p className="hero-subtitle">{t.hero.subtitle}</p>
           <div className="hero-actions">
