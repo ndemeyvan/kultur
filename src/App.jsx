@@ -4,7 +4,7 @@ import './App.css'
 
 function App() {
   const [lang, setLang] = useState('fr')
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('light')
   const [form, setForm] = useState({ name: '', email: '', role: 'fan', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
