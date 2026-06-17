@@ -8,6 +8,16 @@ function App() {
   const [form, setForm] = useState({ name: '', email: '', role: 'fan', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+const artistImages = [
+  'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1579621970563-ebec7560f3b6?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1547826039-bfc35e0e1b0d?w=600&h=600&fit=crop',
+]
   const [visibleSections, setVisibleSections] = useState(new Set())
 
   const t = LANGUAGES[lang]
@@ -312,6 +322,37 @@ function App() {
               <span>DHHF</span>
               <span className="festival-year">2025</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ARTIST TYPES */}
+      <section id="artist-types" data-section="artist-types" className={`section artist-types-section ${isVisible('artist-types') ? 'visible' : ''}`}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag gold-text">🎭 {t.artistTypes.tag}</span>
+            <h2>{t.artistTypes.title}</h2>
+            <p className="section-desc">{t.artistTypes.desc}</p>
+          </div>
+          <div className="artist-types-grid">
+            {t.artistTypes.types.map((type, i) => (
+              <div key={i} className="artist-type-card" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="artist-type-image">
+                  <img
+                    src={artistImages[i]}
+                    alt={type.title}
+                    loading="lazy"
+                  />
+                  <div className="artist-type-overlay">
+                    <span className="artist-type-icon">{type.icon}</span>
+                  </div>
+                </div>
+                <div className="artist-type-info">
+                  <h3 className="artist-type-name">{type.title}</h3>
+                  <p className="artist-type-desc">{type.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

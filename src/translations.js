@@ -90,6 +90,20 @@ const FR = {
     social: "Réseaux",
     copyright: "© 2025 Kultur – Tous droits réservés. Fait avec ❤️ à Douala.",
   },
+  artistTypes: {
+    tag: "Créateurs",
+    title: "Tous les talents réunis",
+    desc: "Peintres, musiciens, photographes, sculpteurs... Kultur accueille toutes les formes d'art.",
+    types: [
+      { icon: "🎨", title: "Peintres", desc: "Expose et vends tes toiles, portraits et œuvres originales directement à tes collectionneurs." },
+      { icon: "🧶", title: "Artisans", desc: "Vends tes vêtements, chapeaux, accessoires et créations faites main." },
+      { icon: "🎵", title: "Musiciens", desc: "Rappeurs, chanteurs, beatmakers — partage ta musique et monétise chaque écoute." },
+      { icon: "🖼️", title: "Vendeurs d'art", desc: "Galeristes et marchands : connecte-toi aux collectionneurs sans intermédiaire." },
+      { icon: "🔄", title: "Changeurs", desc: "Échange et troque des œuvres, services et talents avec la communauté Kultur." },
+      { icon: "📸", title: "Photographes", desc: "Vends tes clichés, reportages et portfolios en toute simplicité." },
+      { icon: "🗿", title: "Sculpteurs", desc: "Présente et commercialise tes sculptures et installations." },
+    ],
+  },
   phone: [
     { icon: "🎵", title: "Nouveau son", sub: "2 500 écoutes" },
     { icon: "🎤", title: "Concert à venir", sub: "25 Juin • Douala" },
@@ -188,6 +202,20 @@ const EN = {
     contact: "Contact",
     social: "Social",
     copyright: "© 2025 Kultur – All rights reserved. Made with ❤️ in Douala.",
+  },
+  artistTypes: {
+    tag: "Creators",
+    title: "All talents united",
+    desc: "Painters, musicians, photographers, sculptors... Kultur welcomes every art form.",
+    types: [
+      { icon: "🎨", title: "Painters", desc: "Exhibit and sell your canvases, portraits and original works directly to collectors." },
+      { icon: "🧶", title: "Artisans", desc: "Sell your clothes, hats, accessories and handmade creations." },
+      { icon: "🎵", title: "Musicians", desc: "Rappers, singers, beatmakers — share your music and monetize every listen." },
+      { icon: "🖼️", title: "Art Sellers", desc: "Gallery owners and dealers: connect with collectors with no middleman." },
+      { icon: "🔄", title: "Exchangers", desc: "Trade artworks, services and talents within the Kultur community." },
+      { icon: "📸", title: "Photographers", desc: "Sell your shots, reports and portfolios with ease." },
+      { icon: "🗿", title: "Sculptors", desc: "Showcase and sell your sculptures and installations." },
+    ],
   },
   phone: [
     { icon: "🎵", title: "New track", sub: "2,500 plays" },
