@@ -135,7 +135,7 @@ const artistImages = [
       <section id="hero" data-section="hero" className={`section hero-section ${isVisible('hero') ? 'visible' : ''}`}>
         <div className="hero-bg">
           <video autoPlay muted loop playsInline className="hero-video" poster="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=800&fit=crop">
-            <source src="https://cdn.coverr.co/videos/coverr-photographer-in-mountains-7798/1080p.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/45563/45563-720.mp4" type="video/mp4" />
           </video>
           <div className="hero-video-overlay"></div>
         </div>
