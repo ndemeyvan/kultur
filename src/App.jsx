@@ -101,7 +101,7 @@ function App() {
             <div className="phone-screen">
               <div className="phone-header">KULTUR</div>
                 <div className="phone-artist">
-                <img className="phone-avatar" src="https://i.pravatar.cc/80?img=11" alt="Ko-c" loading="lazy" />
+                <img className="phone-avatar" src="https://randomuser.me/api/portraits/men/33.jpg" alt="Ko-c" loading="lazy" />
                 <div>
                   <div className="phone-name">Ko-c</div>
                   <div className="phone-genre">Rappeur • Douala</div>
@@ -138,9 +138,9 @@ function App() {
             </button>
           </div>
           <div className="hero-artists">
-            {[9, 12, 25, 33, 45].map((img, i) => (
+            {['men/11', 'women/28', 'men/33', 'women/44', 'men/65'].map((ref, i) => (
               <img key={i} className="hero-artist-avatar"
-                src={`https://i.pravatar.cc/80?img=${img}`}
+                src={`https://randomuser.me/api/portraits/${ref}.jpg`}
                 alt="artiste" loading="lazy"
                 style={{ animationDelay: `${i * 0.1}s` }} />
             ))}
@@ -227,12 +227,12 @@ function App() {
                   <span>Artistes populaires</span>
                 </div>
                 {[
-                  { name: 'Ko-c', genre: 'Rap', img: 11, badge: '🔥' },
-                  { name: 'Majo', genre: 'Afro', img: 32, badge: '💎' },
-                  { name: 'Sefa', genre: 'Hip-Hop', img: 65, badge: '🔥' },
+                  { name: 'Ko-c', genre: 'Rap', ref: 'men/33', badge: '🔥' },
+                  { name: 'Majo', genre: 'Afro', ref: 'women/28', badge: '💎' },
+                  { name: 'Sefa', genre: 'Hip-Hop', ref: 'men/65', badge: '🔥' },
                 ].map((a, i) => (
                   <div key={i} className="featured-artist">
-                    <img className="featured-avatar" src={`https://i.pravatar.cc/80?img=${a.img}`} alt={a.name} loading="lazy" />
+                    <img className="featured-avatar" src={`https://randomuser.me/api/portraits/${a.ref}.jpg`} alt={a.name} loading="lazy" />
                     <div className="featured-info">
                       <div className="featured-name">{a.name}</div>
                       <div className="featured-genre">{a.genre}</div>
@@ -269,8 +269,8 @@ function App() {
             <div className="split-visual">
               <div className="community-card">
                 <div className="community-avatars">
-                  {[18, 23, 41, 55, 68].map((img, i) => (
-                    <img key={i} className="avatar" src={`https://i.pravatar.cc/80?img=${img}`}
+                  {['women/28', 'men/11', 'women/44', 'men/70', 'women/14'].map((ref, i) => (
+                    <img key={i} className="avatar" src={`https://randomuser.me/api/portraits/${ref}.jpg`}
                       alt="fan" loading="lazy" style={{ animationDelay: `${i * 0.15}s` }} />
                   ))}
                 </div>
@@ -327,7 +327,7 @@ function App() {
           <div className="team-grid">
             {t.team.members.map((m, i) => (
               <div key={i} className="team-card">
-                <img className="team-avatar" src={`https://i.pravatar.cc/120?img=${[20, 51, 37, 70][i]}`} alt={m.name} loading="lazy" />
+                <img className="team-avatar" src={`https://randomuser.me/api/portraits/${['men/53', 'men/33', 'women/63', 'men/11'][i]}.jpg`} alt={m.name} loading="lazy" />
                 <div className="team-name">{m.name}</div>
                 <div className="team-role">{m.role}</div>
                 <div className="team-bio">{m.bio}</div>

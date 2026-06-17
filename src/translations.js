@@ -2,7 +2,7 @@ const FR = {
   nav: { cases: "Fonctionnalités", artists: "Artistes", fans: "Fans", team: "Équipe", cta: "Pré-inscris-toi" },
   hero: {
     badge: "Disponible bientôt",
-    lines: ["La plateforme", "qui fait gagner", "les artistes", "partout dans le monde"],
+    lines: ["La plateforme", "qui te fait", "gagner de l'argent", "en tant qu'artiste"],
     subtitle: "Abonnements, concerts virtuels, shout-outs, streaming exclusif… Tout pour monétiser ta musique sans intermédiaire.",
     cta: "Je m'inscris",
     secondary: "Découvrir",
@@ -101,7 +101,7 @@ const EN = {
   nav: { cases: "Features", artists: "Artists", fans: "Fans", team: "Team", cta: "Pre-register" },
   hero: {
     badge: "Coming soon",
-    lines: ["The platform that", "makes artists", "money", "everywhere"],
+    lines: ["The platform", "that makes you", "money", "as an artist"],
     subtitle: "Subscriptions, virtual concerts, shout-outs, exclusive streaming… Everything to monetize your music with no middleman.",
     cta: "Sign me up",
     secondary: "Discover",
