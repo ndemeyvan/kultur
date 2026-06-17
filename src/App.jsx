@@ -14,9 +14,9 @@ const artistImages = [
   'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=600&fit=crop',
   'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop',
   'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1579621970563-ebec7560f3b6?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1559526324-593bc073d938?w=600&h=600&fit=crop',
   'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1547826039-bfc35e0e1b0d?w=600&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&h=600&fit=crop',
 ]
   const [visibleSections, setVisibleSections] = useState(new Set())
 
@@ -330,7 +330,7 @@ const artistImages = [
       <section id="artist-types" data-section="artist-types" className={`section artist-types-section ${isVisible('artist-types') ? 'visible' : ''}`}>
         <div className="container">
           <div className="section-header">
-            <span className="section-tag gold-text">🎭 {t.artistTypes.tag}</span>
+            <span className="section-tag gold-text">{t.artistTypes.tag}</span>
             <h2>{t.artistTypes.title}</h2>
             <p className="section-desc">{t.artistTypes.desc}</p>
           </div>
@@ -343,9 +343,6 @@ const artistImages = [
                     alt={type.title}
                     loading="lazy"
                   />
-                  <div className="artist-type-overlay">
-                    <span className="artist-type-icon">{type.icon}</span>
-                  </div>
                 </div>
                 <div className="artist-type-info">
                   <h3 className="artist-type-name">{type.title}</h3>

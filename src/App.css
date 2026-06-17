@@ -655,22 +655,6 @@ h2 {
   transform: scale(1.08);
 }
 
-.artist-type-overlay {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  width: 48px;
-  height: 48px;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.artist-type-icon { font-size: 1.5rem; }
-
 .artist-type-info { padding: 22px 22px 26px; }
 
 .artist-type-name {
