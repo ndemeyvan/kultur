@@ -9,19 +9,37 @@
   --black-light: #1A1A1A;
   --gold: #F5B041;
   --gold-dark: #D3941F;
+  --gold-light: #FFD700;
   --accent: #8B0000;
+  --orange: #E67E22;
+  --orange-light: #F39C12;
+  --purple: #4A00E0;
+  --purple-light: #8E2DE2;
   --white: #FFFFFF;
   --gray: #B0B0B0;
-  --gray-dark: #6B7280;
+  --gray-dark: #7F8C8D;
+  --gray-mid: #5A5A5A;
+  --border: #2C2C2C;
+  --border-light: #3D3D3D;
+  --success: #27AE60;
+  --error: #E74C3C;
+  --warning: #F1C40F;
+  --info: #3498DB;
 
   --bg-primary: #0A0A0A;
   --bg-secondary: #1A1A1A;
-  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card: #1A1A1A;
   --text-primary: #FFFFFF;
   --text-secondary: #B0B0B0;
-  --text-muted: #6B7280;
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --text-muted: #7F8C8D;
+  --border-color: #2C2C2C;
+  --border-strong: #3D3D3D;
+
+  --gradient-premium: linear-gradient(135deg, #4A00E0, #8E2DE2);
+  --gradient-gold: linear-gradient(135deg, #F5B041, #FFD700);
+  --gradient-street: linear-gradient(135deg, #0A0A0A, #8B0000);
+  --gradient-fire: linear-gradient(135deg, #E67E22, #F39C12);
+  --gradient-primary: linear-gradient(180deg, #0A0A0A, #1A1A1A);
 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text-primary);
@@ -35,19 +53,37 @@
   --black-light: #F5F5F5;
   --gold: #B8860B;
   --gold-dark: #8B6508;
+  --gold-light: #D4A017;
   --accent: #DC143C;
+  --orange: #D35400;
+  --orange-light: #E67E22;
+  --purple: #6C2BD9;
+  --purple-light: #9B59B6;
   --white: #1A1A1A;
-  --gray: #4B5563;
-  --gray-dark: #9CA3AF;
+  --gray: #5A5A5A;
+  --gray-dark: #7F8C8D;
+  --gray-mid: #95A5A6;
+  --border: #E0E0E0;
+  --border-light: #CBD5E0;
+  --success: #27AE60;
+  --error: #E74C3C;
+  --warning: #F1C40F;
+  --info: #3498DB;
 
   --bg-primary: #FFFFFF;
   --bg-secondary: #F5F5F5;
-  --bg-card: rgba(0, 0, 0, 0.03);
+  --bg-card: #FFFFFF;
   --text-primary: #1A1A1A;
-  --text-secondary: #4B5563;
-  --text-muted: #9CA3AF;
-  --border-color: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.12);
+  --text-secondary: #5A5A5A;
+  --text-muted: #7F8C8D;
+  --border-color: #E0E0E0;
+  --border-strong: #CBD5E0;
+
+  --gradient-premium: linear-gradient(135deg, #6C2BD9, #9B59B6);
+  --gradient-gold: linear-gradient(135deg, #B8860B, #D4A017);
+  --gradient-street: linear-gradient(135deg, #FFFFFF, #DC143C);
+  --gradient-fire: linear-gradient(135deg, #D35400, #E67E22);
+  --gradient-primary: linear-gradient(180deg, #FFFFFF, #F5F5F5);
 }
 
 body {

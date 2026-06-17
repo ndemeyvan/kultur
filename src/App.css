@@ -63,12 +63,24 @@ h2 {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--gold), var(--accent));
+  background: var(--gradient-gold);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradientShift 4s ease infinite;
+}
+.gradient-premium {
+  background: var(--gradient-premium);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-street {
+  background: var(--gradient-street);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .gold-text { color: var(--gold); }
@@ -155,7 +167,7 @@ h2 {
 .nav-links button:hover { color: var(--gold); }
 
 .nav-cta {
-  background: var(--gold) !important;
+  background: var(--gradient-gold) !important;
   color: var(--black) !important;
   padding: 10px 24px !important;
   font-weight: 700 !important;
@@ -194,8 +206,8 @@ h2 {
 .hero-bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 50% 30%, rgba(245,176,65,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 70%, rgba(139,0,0,0.04) 0%, transparent 50%);
+    radial-gradient(ellipse at 50% 30%, rgba(245,176,65,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 70%, rgba(139,0,0,0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -265,7 +277,7 @@ h2 {
 
 .btn-primary {
   padding: 16px 40px;
-  background: var(--gold);
+  background: var(--gradient-gold);
   color: var(--black);
   border: none;
   font-size: 1rem;
@@ -303,15 +315,15 @@ h2 {
 
 .phone-mockup {
   width: 260px; height: 520px;
-  background: linear-gradient(180deg, #1a1a2e 0%, #0d0d1a 100%);
+  background: var(--gradient-primary);
   border-radius: 32px;
-  border: 2px solid rgba(255,255,255,0.06);
+  border: 2px solid var(--border-color);
   padding: 16px 12px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   overflow: hidden;
 }
 [data-theme="light"] .phone-mockup {
-  background: linear-gradient(180deg, #2a2a3e 0%, #1a1a2a 100%);
+  background: var(--gradient-primary);
 }
 .phone-notch {
   width: 90px; height: 22px;
@@ -533,7 +545,7 @@ h2 {
 .stats-row .gold-text { font-weight: 700; }
 
 .stats-bar { margin-top: 16px; height: 4px; background: var(--border-color); overflow: hidden; }
-.stats-bar-fill { height: 100%; background: var(--gold); border-radius: 2px; animation: barGrow 1.5s ease forwards; }
+.stats-bar-fill { height: 100%; background: var(--gradient-gold); border-radius: 2px; animation: barGrow 1.5s ease forwards; }
 .stats-growth {
   display: block; font-family: 'Space Grotesk', sans-serif;
   font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;
@@ -580,6 +592,7 @@ h2 {
   padding: 60px 40px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
+  border-top: 3px solid var(--gold);
 }
 .partnership-card h2 { margin-bottom: 14px; }
 .partnership-card p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 28px; }
@@ -713,7 +726,7 @@ h2 {
 .footer-accent {
   position: absolute; top: 0; left: 0; right: 0;
   height: 2px;
-  background: var(--gold);
+  background: var(--gradient-gold);
 }
 
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--border-color); margin-bottom: 28px; }
