@@ -311,59 +311,6 @@ h2 {
 }
 .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
-.hero-visual { position: relative; z-index: 1; }
-
-.phone-mockup {
-  width: 260px; height: 520px;
-  background: var(--gradient-primary);
-  border-radius: 32px;
-  border: 2px solid var(--border-color);
-  padding: 16px 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  overflow: hidden;
-}
-[data-theme="light"] .phone-mockup {
-  background: var(--gradient-primary);
-}
-.phone-notch {
-  width: 90px; height: 22px;
-  background: var(--black);
-  border-radius: 0 0 10px 10px;
-  margin: -14px auto 12px;
-}
-.phone-header {
-  font-family: 'Anton', sans-serif;
-  font-size: 1rem;
-  text-align: center;
-  letter-spacing: 4px;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-.phone-artist {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 16px; padding: 8px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.04);
-}
-.phone-avatar {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-.phone-name { font-weight: 700; font-size: 0.85rem; color: var(--white); }
-.phone-genre { font-size: 0.7rem; color: var(--gray); }
-.phone-card {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.04);
-  margin-bottom: 8px;
-}
-.phone-card-icon { font-size: 1.2rem; }
-.phone-card-title { font-weight: 600; font-size: 0.8rem; color: var(--white); }
-.phone-card-sub { font-size: 0.7rem; color: var(--gray); }
-
 @media (max-width: 1024px) {
   .hero-section {
     flex-direction: column-reverse;
@@ -375,9 +322,6 @@ h2 {
   .hero-subtitle { margin: 0 auto 36px; }
   .hero-actions { justify-content: center; }
   .hero-stats { justify-content: center; }
-}
-@media (max-width: 480px) {
-  .phone-mockup { width: 220px; height: 440px; }
 }
 
 /* ===== PROBLEM ===== */
