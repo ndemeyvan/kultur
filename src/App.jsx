@@ -134,27 +134,11 @@ const artistImages = [
       {/* HERO */}
       <section id="hero" data-section="hero" className={`section hero-section ${isVisible('hero') ? 'visible' : ''}`}>
         <div className="hero-bg">
-          <div className="hero-gradient-bg"></div>
-          <div className="hero-particles">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="hero-particle" style={{
-                width: `${200 + i * 80}px`,
-                height: `${200 + i * 80}px`,
-                top: `${15 + i * 12}%`,
-                left: `${10 + i * 14}%`,
-                animationDelay: `${i * 2}s`,
-                animationDuration: `${8 + i * 2}s`,
-              }}></div>
-            ))}
-          </div>
-        </div>
-        {/* Pour ajouter une vidéo de fond : décommente le bloc ci-dessous et mets ton fichier .mp4 dans /public/video/ */}
-        {/* <div className="hero-bg">
           <video autoPlay muted loop playsInline className="hero-video" poster="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=800&fit=crop">
-            <source src="/video/ton-fichier.mp4" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-photographer-in-mountains-7798/1080p.mp4" type="video/mp4" />
           </video>
           <div className="hero-video-overlay"></div>
-        </div> */}
+        </div>
         <div className="hero-content">
           <div className="hero-badge">{t.hero.badge}</div>
           <h1 className="hero-title">
