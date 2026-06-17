@@ -137,6 +137,15 @@ function App() {
               {t.hero.secondary} →
             </button>
           </div>
+          <div className="hero-artists">
+            {['K', 'M', 'S', 'J', 'D'].map((initial, i) => (
+              <div key={i} className="hero-artist-avatar" style={{
+                background: ['var(--gold)', 'var(--accent)', 'linear-gradient(135deg, var(--gold), var(--accent))', 'var(--gold)', 'var(--accent)'][i],
+                animationDelay: `${i * 0.1}s`
+              }}>{initial}</div>
+            ))}
+            <span className="hero-artists-count">+100 artistes</span>
+          </div>
           <div className="hero-stats">
             {t.hero.stats.map((s, i) => (
               <div key={i} className="stat">
@@ -212,6 +221,26 @@ function App() {
               </ul>
             </div>
             <div className="split-visual">
+              <div className="featured-artists">
+                <div className="stats-header">
+                  <span className="stats-dot"></span>
+                  <span>Artistes populaires</span>
+                </div>
+                {[
+                  { name: 'Ko-c', genre: 'Rap', initials: 'KC', color: 'var(--gold)' },
+                  { name: 'Majo', genre: 'Afro', initials: 'MJ', color: 'var(--accent)' },
+                  { name: 'Sefa', genre: 'Hip-Hop', initials: 'SF', color: 'var(--gold)' },
+                ].map((a, i) => (
+                  <div key={i} className="featured-artist">
+                    <div className="featured-avatar" style={{ background: a.color }}>{a.initials}</div>
+                    <div className="featured-info">
+                      <div className="featured-name">{a.name}</div>
+                      <div className="featured-genre">{a.genre}</div>
+                    </div>
+                    <div className="featured-badge">{a.genre === 'Rap' ? '🔥' : '💎'}</div>
+                  </div>
+                ))}
+              </div>
               <div className="stats-card">
                 <div className="stats-header">
                   <span className="stats-dot"></span>

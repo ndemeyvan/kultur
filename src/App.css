@@ -227,6 +227,38 @@ h2 {
   letter-spacing: -2px;
 }
 
+.hero-artists {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+.hero-artist-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--black);
+  border: 2px solid var(--bg-primary);
+  margin-left: -8px;
+  animation: avatarBounce 2s ease-in-out infinite;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.hero-artist-avatar:first-child { margin-left: 0; }
+.hero-artists-count {
+  margin-left: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .hero-subtitle {
   font-size: 1.1rem;
   color: var(--text-secondary);
@@ -454,6 +486,37 @@ h2 {
   font-weight: 700; font-size: 0.8rem;
   flex-shrink: 0;
 }
+
+.featured-artists {
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  margin-bottom: 16px;
+}
+.featured-artist {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.featured-artist:last-child { border-bottom: none; padding-bottom: 0; }
+.featured-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--black);
+  flex-shrink: 0;
+}
+.featured-info { flex: 1; }
+.featured-name { font-weight: 700; font-size: 0.9rem; }
+.featured-genre { font-size: 0.75rem; color: var(--text-muted); }
+.featured-badge { font-size: 1.1rem; }
 
 .stats-card {
   padding: 28px;
