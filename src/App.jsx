@@ -1,29 +1,21 @@
 import { useState, useEffect, useRef } from 'react'
+import { LANGUAGES } from './translations'
 import './App.css'
 
-const PILLARS = [
-  { icon: '🎵', title: 'Musique', desc: 'Streaming et téléchargement de sons, playlists personnalisées', color: 'var(--magenta)', stat: '2 500+', statLabel: 'sons disponibles' },
-  { icon: '💰', title: 'Abonnements', desc: 'Les fans s\'abonnent à leurs artistes (500-2000 FCFA/mois)', color: 'var(--gold)', stat: '500-2000 FCFA', statLabel: 'par mois' },
-  { icon: '🎤', title: 'Événements', desc: 'Billeterie en ligne pour concerts, festivals, et concerts virtuels', color: 'var(--cyan)', stat: '50+', statLabel: 'événements prévus' },
-  { icon: '🛍️', title: 'Boutique', desc: 'Vente de goodies, produits dérivés, et contenus digitaux', color: 'var(--purple)', stat: '100%', statLabel: 'des revenus à l\'artiste' },
-  { icon: '📣', title: 'Shout-out', desc: 'Messages personnalisés vendus par les artistes', color: 'var(--orange)', stat: '×2', statLabel: 'engagement fans' },
-  { icon: '🤝', title: 'Réseautage', desc: 'Marketplace pour beats, services, collaborations (V2)', color: 'var(--green)', stat: 'Bientôt', statLabel: 'Version 2' },
-]
-
-const TEAM = [
-  { initial: 'L', name: 'Landry', role: 'CEO & Fondateur', color: 'var(--gold)', bio: 'Musicien et entrepreneur. 10 ans dans l\'industrie musicale.' },
-  { initial: 'M', name: 'Michaël', role: 'CTO', color: 'var(--cyan)', bio: 'Full-stack developer. A construit 3 apps à succès.' },
-  { initial: 'A', name: 'Amina', role: 'Design Lead', color: 'var(--magenta)', bio: 'UI/UX designer. Portfolio avec 3 startups africaines.' },
-  { initial: 'K', name: 'Karl', role: 'Community', color: 'var(--green)', bio: 'Community manager. +50 000 followers cumulés.' },
-]
-
 function App() {
+  const [lang, setLang] = useState('fr')
+  const [theme, setTheme] = useState('dark')
   const [form, setForm] = useState({ name: '', email: '', role: 'fan', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [visibleSections, setVisibleSections] = useState(new Set())
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+
+  const t = LANGUAGES[lang]
   const observerRef = useRef(null)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -40,10 +32,6 @@ function App() {
     return () => observerRef.current?.disconnect()
   }, [])
 
-  const handleMouseMove = (e) => {
-    setMousePos({ x: e.clientX, y: e.clientY })
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (form.email) {
@@ -59,12 +47,19 @@ function App() {
     setMenuOpen(false)
   }
 
+  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
+
   return (
-    <div className="app" onMouseMove={handleMouseMove}>
-      {/* Announcement bar */}
-      <div className="announcement-bar">
-        <div className="announcement-track">
-          <span>🔥 KULTUR ARRIVE BIENTÔT — PRÉ-INSCRIS-TOI 🔥 KULTUR ARRIVE BIENTÔT — PRÉ-INSCRIS-TOI 🔥 KULTUR ARRIVE BIENTÔT — PRÉ-INSCRIS-TOI 🔥 KULTUR ARRIVE BIENTÔT — PRÉ-INSCRIS-TOI</span>
+    <div className="app">
+      {/* TOP BAR */}
+      <div className="top-bar">
+        <div className="top-bar-inner">
+          <button className="lang-btn" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')}>
+            {lang === 'fr' ? 'EN' : 'FR'}
+          </button>
+          <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
         </div>
       </div>
 
@@ -79,60 +74,47 @@ function App() {
             <span></span><span></span><span></span>
           </button>
           <div className="nav-links">
-            <button onClick={() => scrollTo('cases')}>Cas d&apos;usage</button>
-            <button onClick={() => scrollTo('artists')}>Artistes</button>
-            <button onClick={() => scrollTo('fans')}>Fans</button>
-            <button onClick={() => scrollTo('team')}>Équipe</button>
-            <button onClick={() => scrollTo('contact')} className="nav-cta">Pré-inscris-toi</button>
+            <button onClick={() => scrollTo('cases')}>{t.nav.cases}</button>
+            <button onClick={() => scrollTo('artists')}>{t.nav.artists}</button>
+            <button onClick={() => scrollTo('fans')}>{t.nav.fans}</button>
+            <button onClick={() => scrollTo('team')}>{t.nav.team}</button>
+            <button onClick={() => scrollTo('contact')} className="nav-cta">{t.nav.cta}</button>
           </div>
         </div>
         {menuOpen && (
           <div className="mobile-menu">
-            <button onClick={() => scrollTo('cases')}>Cas d&apos;usage</button>
-            <button onClick={() => scrollTo('artists')}>Artistes</button>
-            <button onClick={() => scrollTo('fans')}>Fans</button>
-            <button onClick={() => scrollTo('team')}>Équipe</button>
-            <button onClick={() => scrollTo('contact')} className="nav-cta">Pré-inscris-toi</button>
+            <button onClick={() => scrollTo('cases')}>{t.nav.cases}</button>
+            <button onClick={() => scrollTo('artists')}>{t.nav.artists}</button>
+            <button onClick={() => scrollTo('fans')}>{t.nav.fans}</button>
+            <button onClick={() => scrollTo('team')}>{t.nav.team}</button>
+            <button onClick={() => scrollTo('contact')} className="nav-cta">{t.nav.cta}</button>
           </div>
         )}
       </nav>
 
       {/* HERO */}
       <section id="hero" data-section="hero" className={`section hero-section ${isVisible('hero') ? 'visible' : ''}`}>
-        <div className="hero-bg">
-          <div className="floating-shape shape-1" style={{ transform: `translate(${mousePos.x * 0.02}px, ${mousePos.y * 0.02}px)` }}></div>
-          <div className="floating-shape shape-2" style={{ transform: `translate(${mousePos.x * -0.015}px, ${mousePos.y * -0.015}px)` }}></div>
-          <div className="floating-shape shape-3" style={{ transform: `translate(${mousePos.x * 0.01}px, ${mousePos.y * -0.02}px)` }}></div>
-        </div>
+        <div className="hero-bg"></div>
         <div className="hero-content">
-          <div className="hero-badge">
-            <span className="badge-dot"></span>
-            Disponible bientôt
-          </div>
+          <div className="hero-badge">{t.hero.badge}</div>
           <h1 className="hero-title">
-            <span className="hero-line">La plateforme</span>
-            <span className="hero-line gradient-text">qui fait gagner</span>
-            <span className="hero-line">les artistes</span>
-            <span className="hero-line gold-text">partout dans le monde</span>
+            {t.hero.lines.map((line, i) => (
+              <span key={i} className={`hero-line ${i === 1 ? 'gradient-text' : ''} ${i === 3 ? 'gold-text' : ''}`}>
+                {line}
+              </span>
+            ))}
           </h1>
-          <p className="hero-subtitle">
-            Abonnements, concerts virtuels, shout-outs, streaming exclusif…
-            Tout pour monétiser ta musique <span className="gold-text">sans intermédiaire</span>.
-          </p>
+          <p className="hero-subtitle">{t.hero.subtitle}</p>
           <div className="hero-actions">
             <button className="btn-primary" onClick={() => scrollTo('contact')}>
-              🚀 Je m&apos;inscris
+              {t.hero.cta}
             </button>
             <button className="btn-secondary" onClick={() => scrollTo('cases')}>
-              Voir les fonctionnalités →
+              {t.hero.secondary} →
             </button>
           </div>
           <div className="hero-stats">
-            {[
-              { num: '100+', label: 'Artistes inscrits' },
-              { num: '0%', label: 'Commission cachée' },
-              { num: 'Orange Money', label: 'Paiement instantané' },
-            ].map((s, i) => (
+            {t.hero.stats.map((s, i) => (
               <div key={i} className="stat">
                 <span className="stat-number">{s.num}</span>
                 <span className="stat-label">{s.label}</span>
@@ -152,22 +134,17 @@ function App() {
                   <div className="phone-genre">Rappeur • Douala</div>
                 </div>
               </div>
-              {[
-                { icon: '🎵', title: 'Nouveau son', sub: '2 500 écoutes' },
-                { icon: '🎤', title: 'Concert à venir', sub: '25 Juin • Douala' },
-                { icon: '💰', title: 'Revenus du mois', sub: '+ 450 000 FCFA', gold: true },
-              ].map((c, i) => (
+              {t.phone.map((c, i) => (
                 <div key={i} className="phone-card">
                   <span className="phone-card-icon">{c.icon}</span>
                   <div>
                     <div className="phone-card-title">{c.title}</div>
-                    <div className={`phone-card-sub ${c.gold ? 'gold-text' : ''}`}>{c.sub}</div>
+                    <div className={`phone-card-sub ${i === 2 ? 'gold-text' : ''}`}>{c.sub}</div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="hero-glow"></div>
         </div>
       </section>
 
@@ -175,48 +152,40 @@ function App() {
       <section id="problem" data-section="problem" className={`section problem-section ${isVisible('problem') ? 'visible' : ''}`}>
         <div className="container">
           <div className="problem-grid">
-            <div className="problem-card problem">
+            <div className="problem-card">
               <div className="problem-corner"></div>
               <span className="problem-emoji">⚠️</span>
-              <h2>Le&nbsp;problème</h2>
-              <p>
-                Les artistes galèrent à gagner de l&apos;argent avec leur musique.
-                Les plateformes de streaming payent des miettes, les intermédiaires prennent
-                des commissions excessives.
-              </p>
-              <div className="problem-fact">84% des artistes gagnent moins de 100 000 FCFA/mois</div>
+              <h2>{t.problem.problem.title}</h2>
+              <p>{t.problem.problem.text}</p>
+              <div className="problem-fact">{t.problem.problem.fact}</div>
             </div>
             <div className="problem-card solution">
               <div className="problem-corner"></div>
               <span className="problem-emoji">🚀</span>
-              <h2>La&nbsp;solution</h2>
-              <p>
-                Kultur leur donne les outils pour vendre directement à leurs fans :
-                abonnements, billets, shout-outs, streaming exclusif, boutique.
-              </p>
-              <div className="problem-fact gold-text">Sans intermédiaire. Paiement instantané via Orange Money.</div>
+              <h2>{t.problem.solution.title}</h2>
+              <p>{t.problem.solution.text}</p>
+              <div className="problem-fact gold-text">{t.problem.solution.fact}</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CASE STUDIES */}
+      {/* CASES */}
       <section id="cases" data-section="cases" className={`section cases-section ${isVisible('cases') ? 'visible' : ''}`}>
         <div className="container">
           <div className="section-header">
-            <span className="section-tag" style={{ color: 'var(--magenta)' }}>⚡ Cas d&apos;usage</span>
-            <h2 className="gradient-text">Tout ce que <br/>Kultur propose</h2>
-            <p className="section-desc">6 piliers pour tout gérer. De la musique au cash.</p>
+            <span className="section-tag gold-text">⚡ {t.cases.tag}</span>
+            <h2>{t.cases.title}</h2>
+            <p className="section-desc">{t.cases.desc}</p>
           </div>
           <div className="cases-grid">
-            {PILLARS.map((p, i) => (
-              <div key={i} className="case-card" style={{ '--card-accent': p.color }}>
-                <div className="case-accent" style={{ background: p.color }}></div>
+            {t.pillars.map((p, i) => (
+              <div key={i} className="case-card">
                 <div className="case-icon">{p.icon}</div>
                 <h3 className="case-title">{p.title}</h3>
                 <p className="case-desc">{p.desc}</p>
                 <div className="case-stat">
-                  <span className="case-stat-num" style={{ color: p.color }}>{p.stat}</span>
+                  <span className="case-stat-num">{p.stat}</span>
                   <span className="case-stat-label">{p.statLabel}</span>
                 </div>
               </div>
@@ -230,16 +199,11 @@ function App() {
         <div className="container">
           <div className="split-grid">
             <div className="split-content">
-              <span className="section-tag" style={{ color: 'var(--green)' }}>🎤 Pour les artistes</span>
-              <h2>Gagne de l&apos;argent <br/><span className="gradient-text">directement</span></h2>
-              <p className="split-desc">Les outils pour vivre de ta musique.</p>
+              <span className="section-tag gold-text">🎤 {t.artists.tag}</span>
+              <h2>{t.artists.title}</h2>
+              <p className="split-desc">{t.artists.desc}</p>
               <ul className="benefits-list">
-                {[
-                  'Gagne de l\'argent directement – pas d\'intermédiaire',
-                  'Fidélise tes fans – crée une communauté engagée',
-                  'Statistiques en temps réel – suis tes revenus, tes abonnés',
-                  'Visibilité – sois mis en avant sur la plateforme',
-                ].map((item, i) => (
+                {t.artists.items.map((item, i) => (
                   <li key={i} className="benefit-item">
                     <span className="check">✓</span>
                     {item}
@@ -251,23 +215,18 @@ function App() {
               <div className="stats-card">
                 <div className="stats-header">
                   <span className="stats-dot"></span>
-                  <span>Dashboard Artiste</span>
+                  <span>Dashboard</span>
                 </div>
-                {[
-                  { label: 'Revenus du mois', value: '+2 350 000 FCFA' },
-                  { label: 'Abonnés', value: '1 247' },
-                  { label: 'Écoutes', value: '45 892' },
-                  { label: 'Shout-outs vendus', value: '12' },
-                ].map((r, i) => (
+                {t.artists.stats.map((r, i) => (
                   <div key={i} className="stats-row">
                     <span>{r.label}</span>
                     <span className="gold-text">{r.value}</span>
                   </div>
                 ))}
                 <div className="stats-bar">
-                  <div className="stats-bar-fill" style={{ width: '76%' }}></div>
+                  <div className="stats-bar-fill"></div>
                 </div>
-                <span className="stats-growth">+124% vs mois dernier</span>
+                <span className="stats-growth">{t.artists.growth}</span>
               </div>
             </div>
           </div>
@@ -281,31 +240,26 @@ function App() {
             <div className="split-visual">
               <div className="community-card">
                 <div className="community-avatars">
-                  {['#F5B041', '#FF006E', '#00E5FF', '#7000FF', '#00FF88'].map((c, i) => (
-                    <div key={i} className="avatar" style={{ background: c, animationDelay: `${i * 0.15}s` }}></div>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div key={i} className="avatar" style={{ animationDelay: `${i * 0.15}s` }}></div>
                   ))}
                 </div>
                 <p className="community-text">
-                  <strong>+2 500 fans</strong> ont déjà rejoint la communauté
+                  <strong>+2 500</strong> {t.fans.community}
                 </p>
                 <div className="community-grid">
-                  {['Douala', 'Yaoundé', 'Paris', 'Montréal', 'Abidjan', 'Bamenda'].map((city, i) => (
+                  {t.fans.cities.map((city, i) => (
                     <span key={i} className="community-city">{city}</span>
                   ))}
                 </div>
               </div>
             </div>
             <div className="split-content">
-              <span className="section-tag" style={{ color: 'var(--magenta)' }}>💚 Pour les fans</span>
-              <h2>Soutiens tes artistes <br/><span className="gradient-text">préférés</span></h2>
-              <p className="split-desc">De manière concrète et directe.</p>
+              <span className="section-tag gold-text">💚 {t.fans.tag}</span>
+              <h2>{t.fans.title}</h2>
+              <p className="split-desc">{t.fans.desc}</p>
               <ul className="benefits-list">
-                {[
-                  'Soutiens tes artistes – de manière concrète',
-                  'Accès exclusif – sons inédits, vidéos, making-of',
-                  'Shout-outs personnalisés – anniversaires, félicitations',
-                  'Rejoins une communauté de passionnés',
-                ].map((item, i) => (
+                {t.fans.items.map((item, i) => (
                   <li key={i} className="benefit-item">
                     <span className="check">✓</span>
                     {item}
@@ -321,12 +275,11 @@ function App() {
       <section id="partnership" data-section="partnership" className={`section partnership-section ${isVisible('partnership') ? 'visible' : ''}`}>
         <div className="container">
           <div className="partnership-card">
-            <div className="partnership-glow"></div>
-            <span className="section-tag" style={{ color: 'var(--cyan)' }}>🤝 Partenariat officiel</span>
-            <h2>Kultur × <span className="gradient-text">Douala Hip Hop Festival</span></h2>
-            <p>Billets disponibles via l&apos;application Kultur. Reste connecté.</p>
+            <span className="section-tag gold-text">🤝 {t.partnership.tag}</span>
+            <h2>{t.partnership.title}</h2>
+            <p>{t.partnership.desc}</p>
             <div className="festival-badge">
-              <span className="festival-dhhf">DHHF</span>
+              <span>DHHF</span>
               <span className="festival-year">2025</span>
             </div>
           </div>
@@ -337,22 +290,17 @@ function App() {
       <section id="team" data-section="team" className={`section team-section ${isVisible('team') ? 'visible' : ''}`}>
         <div className="container">
           <div className="section-header">
-            <span className="section-tag" style={{ color: 'var(--cyan)' }}>👥 L&apos;équipe</span>
-            <h2>Des passionnés <br/><span className="gradient-text">à Douala</span></h2>
-            <p className="section-desc">Kultur est porté par une équipe de passionnés de musique et de tech.</p>
+            <span className="section-tag gold-text">👥 {t.team.tag}</span>
+            <h2>{t.team.title}</h2>
+            <p className="section-desc">{t.team.desc}</p>
           </div>
           <div className="team-grid">
-            {TEAM.map((m, i) => (
-              <div key={i} className="team-card" style={{ '--team-color': m.color }}>
-                <div className="team-accent"></div>
-                <div className="team-avatar" style={{ background: m.color }}>{m.initial}</div>
+            {t.team.members.map((m, i) => (
+              <div key={i} className="team-card">
+                <div className="team-avatar" style={{ background: 'var(--gold)' }}>{m.initial}</div>
                 <div className="team-name">{m.name}</div>
                 <div className="team-role">{m.role}</div>
                 <div className="team-bio">{m.bio}</div>
-                <div className="team-social">
-                  <span>in</span>
-                  <span>𝕏</span>
-                </div>
               </div>
             ))}
           </div>
@@ -364,14 +312,11 @@ function App() {
         <div className="container">
           <div className="contact-inner">
             <div className="contact-info">
-              <span className="section-tag" style={{ color: 'var(--gold)' }}>🔥 Lancement imminent</span>
-              <h2>Rejoins <span className="gradient-text">Kultur</span> dès maintenant</h2>
-              <p className="section-desc" style={{ textAlign: 'left', margin: '0 0 32px' }}>
-                Sois parmi les premiers à découvrir l&apos;application.
-                Pré-inscris-toi et reçois toutes les infos du lancement.
-              </p>
+              <span className="section-tag gold-text">🔥 {t.contact.tag}</span>
+              <h2>{t.contact.title}</h2>
+              <p className="contact-desc">{t.contact.desc}</p>
               <div className="contact-benefits">
-                {['Accès anticipé', 'Badge fondateur', '-20% abonnement à vie', 'Newsletter VIP'].map((b, i) => (
+                {t.contact.benefits.map((b, i) => (
                   <div key={i} className="contact-benefit">
                     <span className="contact-check">✓</span>
                     {b}
@@ -383,50 +328,37 @@ function App() {
               {submitted ? (
                 <div className="success-message">
                   <div className="success-icon">
-                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#00FF88" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </div>
-                  <h3>Merci ! 🎉</h3>
-                  <p>Tu seras informé du lancement officiel de Kultur.</p>
-                  <div className="success-confetti">
-                    {[
-                      { x: '20%', y: '15%' }, { x: '70%', y: '10%' }, { x: '40%', y: '85%' },
-                      { x: '85%', y: '40%' }, { x: '10%', y: '60%' }, { x: '55%', y: '25%' },
-                      { x: '30%', y: '50%' }, { x: '75%', y: '75%' },
-                    ].map((pos, i) => (
-                      <span key={i} className="confetti-dot" style={{
-                        '--x': pos.x, '--y': pos.y,
-                        '--delay': `${i * 0.1}s`,
-                        background: [ 'var(--gold)', 'var(--magenta)', 'var(--cyan)', 'var(--purple)', 'var(--green)' ][i % 5]
-                      }}>●</span>
-                    ))}
-                  </div>
+                  <h3>{t.contact.success.title} 🎉</h3>
+                  <p>{t.contact.success.desc}</p>
                 </div>
               ) : (
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-group">
-                    <input type="text" placeholder="Ton nom" value={form.name}
+                    <input type="text" placeholder={t.contact.form.name} value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })} />
                   </div>
                   <div className="form-group">
-                    <input type="email" placeholder="Ton email" value={form.email}
+                    <input type="email" placeholder={t.contact.form.email} value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })} required />
                   </div>
                   <div className="form-group">
                     <select value={form.role}
                       onChange={(e) => setForm({ ...form, role: e.target.value })}>
-                      <option value="fan">Je suis un Fan</option>
-                      <option value="artist">Je suis un Artiste</option>
-                      <option value="producer">Je suis un Producteur</option>
+                      <option value="fan">{t.contact.form.fan}</option>
+                      <option value="artist">{t.contact.form.artist}</option>
+                      <option value="producer">{t.contact.form.producer}</option>
                     </select>
                   </div>
                   <div className="form-group">
-                    <textarea placeholder="Un message (optionnel)" rows="3" value={form.message}
+                    <textarea placeholder={t.contact.form.message} rows="3" value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}></textarea>
                   </div>
-                  <button type="submit" className="btn-primary btn-full pulse-btn">
-                    🚀 Je m&apos;inscris
+                  <button type="submit" className="btn-primary btn-full">
+                    {t.contact.form.submit}
                   </button>
                 </form>
               )}
@@ -437,7 +369,7 @@ function App() {
 
       {/* FOOTER */}
       <footer className="footer">
-        <div className="footer-bg"></div>
+        <div className="footer-accent"></div>
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
@@ -445,26 +377,26 @@ function App() {
                 <span className="logo-icon">K</span>
                 <span className="logo-text">KULTUR</span>
               </div>
-              <p>La première plateforme de monétisation directe entre les artistes et leurs fans.</p>
+              <p>{t.footer.desc}</p>
             </div>
             <div className="footer-links">
-              <h4>Liens</h4>
-              <a href="#">Mentions légales</a>
-              <a href="#">Politique de confidentialité</a>
-              <a href="#">CGU</a>
-              <a href="#">Contact</a>
+              <h4>{t.footer.links}</h4>
+              <a href="#">{t.footer.legal}</a>
+              <a href="#">{t.footer.privacy}</a>
+              <a href="#">{t.footer.cgu}</a>
+              <a href="#">{t.footer.contact}</a>
             </div>
             <div className="footer-social">
-              <h4>Réseaux</h4>
+              <h4>{t.footer.social}</h4>
               <div className="social-icons">
-                {['IG', '𝕏', 'TT', 'YT'].map((s, i) => (
+                {['IG', 'X', 'TT', 'YT'].map((s, i) => (
                   <a key={i} href="#" className="social-icon" aria-label={s}>{s}</a>
                 ))}
               </div>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>© 2025 Kultur – Tous droits réservés. Fait avec ❤️ à Douala.</p>
+            <p>{t.footer.copyright}</p>
           </div>
         </div>
       </footer>
