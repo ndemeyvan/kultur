@@ -1,0 +1,203 @@
+const FR = {
+  nav: { cases: "Fonctionnalités", artists: "Artistes", fans: "Fans", team: "Équipe", cta: "Pré-inscris-toi" },
+  hero: {
+    badge: "Disponible bientôt",
+    lines: ["La plateforme", "qui fait gagner", "les artistes", "partout dans le monde"],
+    subtitle: "Abonnements, concerts virtuels, shout-outs, streaming exclusif… Tout pour monétiser ta musique sans intermédiaire.",
+    cta: "Je m'inscris",
+    secondary: "Découvrir",
+    stats: [
+      { num: "100+", label: "Artistes inscrits" },
+      { num: "0%", label: "Commission cachée" },
+      { num: "Orange Money", label: "Paiement instantané" },
+    ],
+  },
+  problem: {
+    problem: { title: "Le problème", text: "Les artistes galèrent à gagner de l'argent avec leur musique. Les plateformes de streaming payent des miettes, les intermédiaires prennent des commissions excessives.", fact: "84% des artistes gagnent moins de 100 000 FCFA/mois" },
+    solution: { title: "La solution", text: "Kultur leur donne les outils pour vendre directement à leurs fans : abonnements, billets, shout-outs, streaming exclusif, boutique.", fact: "Sans intermédiaire. Paiement instantané via Orange Money." },
+  },
+  cases: { tag: "Fonctionnalités", title: "Tout ce que Kultur propose", desc: "6 piliers pour tout gérer. De la musique au cash." },
+  pillars: [
+    { icon: "🎵", title: "Musique", desc: "Streaming et téléchargement de sons, playlists personnalisées", stat: "2 500+", statLabel: "sons disponibles" },
+    { icon: "💰", title: "Abonnements", desc: "Les fans s'abonnent à leurs artistes (500-2000 FCFA/mois)", stat: "500-2000 FCFA", statLabel: "par mois" },
+    { icon: "🎤", title: "Événements", desc: "Billeterie en ligne pour concerts, festivals, et concerts virtuels", stat: "50+", statLabel: "événements prévus" },
+    { icon: "🛍️", title: "Boutique", desc: "Vente de goodies, produits dérivés, et contenus digitaux", stat: "100%", statLabel: "des revenus à l'artiste" },
+    { icon: "📣", title: "Shout-out", desc: "Messages personnalisés vendus par les artistes", stat: "×2", statLabel: "engagement fans" },
+    { icon: "🤝", title: "Réseautage", desc: "Marketplace pour beats, services, collaborations (V2)", stat: "Bientôt", statLabel: "Version 2" },
+  ],
+  artists: {
+    tag: "Pour les artistes",
+    title: "Gagne de l'argent directement",
+    desc: "Les outils pour vivre de ta musique.",
+    items: [
+      "Gagne de l'argent directement – pas d'intermédiaire",
+      "Fidélise tes fans – crée une communauté engagée",
+      "Statistiques en temps réel – suis tes revenus, tes abonnés",
+      "Visibilité – sois mis en avant sur la plateforme",
+    ],
+    stats: [
+      { label: "Revenus du mois", value: "+2 350 000 FCFA" },
+      { label: "Abonnés", value: "1 247" },
+      { label: "Écoutes", value: "45 892" },
+      { label: "Shout-outs vendus", value: "12" },
+    ],
+    growth: "+124% vs mois dernier",
+  },
+  fans: {
+    tag: "Pour les fans",
+    title: "Soutiens tes artistes préférés",
+    desc: "De manière concrète et directe.",
+    items: [
+      "Soutiens tes artistes – de manière concrète",
+      "Accès exclusif – sons inédits, vidéos, making-of",
+      "Shout-outs personnalisés – anniversaires, félicitations",
+      "Rejoins une communauté de passionnés",
+    ],
+    community: "fans ont déjà rejoint la communauté",
+    cities: ["Douala", "Yaoundé", "Paris", "Montréal", "Abidjan", "Bamenda"],
+  },
+  partnership: {
+    tag: "Partenariat officiel",
+    title: "Kultur × Douala Hip Hop Festival",
+    desc: "Billets disponibles via l'application Kultur. Reste connecté.",
+  },
+  team: {
+    tag: "L'équipe",
+    title: "Des passionnés à Douala",
+    desc: "Kultur est porté par une équipe de passionnés de musique et de tech.",
+    members: [
+      { initial: "L", name: "Landry", role: "CEO & Fondateur", color: "var(--gold)", bio: "Musicien et entrepreneur. 10 ans dans l'industrie musicale." },
+      { initial: "M", name: "Michaël", role: "CTO", color: "var(--gold)", bio: "Full-stack developer. A construit 3 apps à succès." },
+      { initial: "A", name: "Amina", role: "Design Lead", color: "var(--gold)", bio: "UI/UX designer. Portfolio avec 3 startups africaines." },
+      { initial: "K", name: "Karl", role: "Community", color: "var(--gold)", bio: "Community manager. +50 000 followers cumulés." },
+    ],
+  },
+  contact: {
+    tag: "Lancement imminent",
+    title: "Rejoins Kultur dès maintenant",
+    desc: "Sois parmi les premiers à découvrir l'application. Pré-inscris-toi et reçois toutes les infos du lancement.",
+    benefits: ["Accès anticipé", "Badge fondateur", "-20% abonnement à vie", "Newsletter VIP"],
+    form: { name: "Ton nom", email: "Ton email", message: "Un message (optionnel)", fan: "Je suis un Fan", artist: "Je suis un Artiste", producer: "Je suis un Producteur", submit: "Je m'inscris" },
+    success: { title: "Merci !", desc: "Tu seras informé du lancement officiel de Kultur." },
+  },
+  footer: {
+    desc: "La première plateforme de monétisation directe entre les artistes et leurs fans.",
+    links: "Liens",
+    legal: "Mentions légales",
+    privacy: "Politique de confidentialité",
+    cgu: "CGU",
+    contact: "Contact",
+    social: "Réseaux",
+    copyright: "© 2025 Kultur – Tous droits réservés. Fait avec ❤️ à Douala.",
+  },
+  phone: [
+    { icon: "🎵", title: "Nouveau son", sub: "2 500 écoutes" },
+    { icon: "🎤", title: "Concert à venir", sub: "25 Juin • Douala" },
+    { icon: "💰", title: "Revenus du mois", sub: "+ 450 000 FCFA" },
+  ],
+}
+
+const EN = {
+  nav: { cases: "Features", artists: "Artists", fans: "Fans", team: "Team", cta: "Pre-register" },
+  hero: {
+    badge: "Coming soon",
+    lines: ["The platform that", "makes artists", "money", "everywhere"],
+    subtitle: "Subscriptions, virtual concerts, shout-outs, exclusive streaming… Everything to monetize your music with no middleman.",
+    cta: "Sign me up",
+    secondary: "Discover",
+    stats: [
+      { num: "100+", label: "Artists onboard" },
+      { num: "0%", label: "Hidden fees" },
+      { num: "Orange Money", label: "Instant payment" },
+    ],
+  },
+  problem: {
+    problem: { title: "The Problem", text: "Artists struggle to make money from their music. Streaming platforms pay crumbs, middlemen take excessive cuts.", fact: "84% of artists earn less than $200/month" },
+    solution: { title: "The Solution", text: "Kultur gives them the tools to sell directly to fans: subscriptions, tickets, shout-outs, exclusive streaming, merch.", fact: "No middleman. Instant payment via Orange Money." },
+  },
+  cases: { tag: "Features", title: "Everything Kultur offers", desc: "6 pillars to manage it all. From music to cash." },
+  pillars: [
+    { icon: "🎵", title: "Music", desc: "Streaming and downloads, personalized playlists", stat: "2,500+", statLabel: "songs available" },
+    { icon: "💰", title: "Subscriptions", desc: "Fans subscribe to artists ($1-5/month), access exclusive content", stat: "$1-5", statLabel: "per month" },
+    { icon: "🎤", title: "Events", desc: "Online ticketing for concerts, festivals, virtual shows", stat: "50+", statLabel: "events planned" },
+    { icon: "🛍️", title: "Store", desc: "Merch sales, digital content, exclusive drops", stat: "100%", statLabel: "revenue to artist" },
+    { icon: "📣", title: "Shout-out", desc: "Personalized messages sold by artists", stat: "×2", statLabel: "fan engagement" },
+    { icon: "🤝", title: "Networking", desc: "Marketplace for beats, services, collabs (V2)", stat: "Soon", statLabel: "Version 2" },
+  ],
+  artists: {
+    tag: "For Artists",
+    title: "Make money directly",
+    desc: "The tools to live off your music.",
+    items: [
+      "Earn money directly – no middleman",
+      "Build loyalty – create an engaged community",
+      "Real-time stats – track revenue, subscribers, plays",
+      "Visibility – get featured on the platform",
+    ],
+    stats: [
+      { label: "Monthly revenue", value: "+$3,800" },
+      { label: "Subscribers", value: "1,247" },
+      { label: "Plays", value: "45,892" },
+      { label: "Shout-outs sold", value: "12" },
+    ],
+    growth: "+124% vs last month",
+  },
+  fans: {
+    tag: "For Fans",
+    title: "Support your favorite artists",
+    desc: "In a concrete and direct way.",
+    items: [
+      "Support your artists – in a meaningful way",
+      "Exclusive access – unreleased tracks, videos, behind-the-scenes",
+      "Personalized shout-outs – birthdays, celebrations",
+      "Join a community of music lovers",
+    ],
+    community: "fans have already joined the community",
+    cities: ["Douala", "Yaoundé", "Paris", "Montreal", "Abidjan", "Bamenda"],
+  },
+  partnership: {
+    tag: "Official Partner",
+    title: "Kultur × Douala Hip Hop Festival",
+    desc: "Tickets available through the Kultur app. Stay tuned.",
+  },
+  team: {
+    tag: "The Team",
+    title: "Passionate people from Douala",
+    desc: "Kultur is built by a team of music and tech enthusiasts.",
+    members: [
+      { initial: "L", name: "Landry", role: "CEO & Founder", color: "var(--gold)", bio: "Musician and entrepreneur. 10 years in the music industry." },
+      { initial: "M", name: "Michael", role: "CTO", color: "var(--gold)", bio: "Full-stack developer. Built 3 successful apps." },
+      { initial: "A", name: "Amina", role: "Design Lead", color: "var(--gold)", bio: "UI/UX designer. Portfolio with 3 African startups." },
+      { initial: "K", name: "Karl", role: "Community", color: "var(--gold)", bio: "Community manager. +50,000 combined followers." },
+    ],
+  },
+  contact: {
+    tag: "Launching soon",
+    title: "Join Kultur now",
+    desc: "Be among the first to discover the app. Pre-register and get all launch updates.",
+    benefits: ["Early access", "Founder badge", "20% lifetime discount", "VIP newsletter"],
+    form: { name: "Your name", email: "Your email", message: "A message (optional)", fan: "I'm a Fan", artist: "I'm an Artist", producer: "I'm a Producer", submit: "Sign me up" },
+    success: { title: "Thank you!", desc: "You will be notified of the official launch of Kultur." },
+  },
+  footer: {
+    desc: "The first direct monetization platform between artists and their fans.",
+    links: "Links",
+    legal: "Legal notice",
+    privacy: "Privacy policy",
+    cgu: "Terms of service",
+    contact: "Contact",
+    social: "Social",
+    copyright: "© 2025 Kultur – All rights reserved. Made with ❤️ in Douala.",
+  },
+  phone: [
+    { icon: "🎵", title: "New track", sub: "2,500 plays" },
+    { icon: "🎤", title: "Upcoming concert", sub: "June 25 • Douala" },
+    { icon: "💰", title: "Monthly revenue", sub: "+$750" },
+  ],
+}
+
+export const LANGUAGES = { fr: FR, en: EN }
+export const LANGS = [
+  { code: "fr", label: "FR" },
+  { code: "en", label: "EN" },
+]
