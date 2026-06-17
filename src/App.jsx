@@ -95,6 +95,30 @@ function App() {
       {/* HERO */}
       <section id="hero" data-section="hero" className={`section hero-section ${isVisible('hero') ? 'visible' : ''}`}>
         <div className="hero-bg"></div>
+        <div className="hero-visual">
+          <div className="phone-mockup">
+            <div className="phone-notch"></div>
+            <div className="phone-screen">
+              <div className="phone-header">KULTUR</div>
+              <div className="phone-artist">
+                <div className="phone-avatar"></div>
+                <div>
+                  <div className="phone-name">Ko-c</div>
+                  <div className="phone-genre">Rappeur • Douala</div>
+                </div>
+              </div>
+              {t.phone.map((c, i) => (
+                <div key={i} className="phone-card">
+                  <span className="phone-card-icon">{c.icon}</span>
+                  <div>
+                    <div className="phone-card-title">{c.title}</div>
+                    <div className={`phone-card-sub ${i === 2 ? 'gold-text' : ''}`}>{c.sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         <div className="hero-content">
           <div className="hero-badge">{t.hero.badge}</div>
           <h1 className="hero-title">
@@ -120,30 +144,6 @@ function App() {
                 <span className="stat-label">{s.label}</span>
               </div>
             ))}
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="phone-mockup">
-            <div className="phone-notch"></div>
-            <div className="phone-screen">
-              <div className="phone-header">KULTUR</div>
-              <div className="phone-artist">
-                <div className="phone-avatar"></div>
-                <div>
-                  <div className="phone-name">Ko-c</div>
-                  <div className="phone-genre">Rappeur • Douala</div>
-                </div>
-              </div>
-              {t.phone.map((c, i) => (
-                <div key={i} className="phone-card">
-                  <span className="phone-card-icon">{c.icon}</span>
-                  <div>
-                    <div className="phone-card-title">{c.title}</div>
-                    <div className={`phone-card-sub ${i === 2 ? 'gold-text' : ''}`}>{c.sub}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
