@@ -100,8 +100,8 @@ function App() {
             <div className="phone-notch"></div>
             <div className="phone-screen">
               <div className="phone-header">KULTUR</div>
-              <div className="phone-artist">
-                <div className="phone-avatar"></div>
+                <div className="phone-artist">
+                <img className="phone-avatar" src="https://i.pravatar.cc/80?img=11" alt="Ko-c" loading="lazy" />
                 <div>
                   <div className="phone-name">Ko-c</div>
                   <div className="phone-genre">Rappeur • Douala</div>
@@ -138,11 +138,11 @@ function App() {
             </button>
           </div>
           <div className="hero-artists">
-            {['K', 'M', 'S', 'J', 'D'].map((initial, i) => (
-              <div key={i} className="hero-artist-avatar" style={{
-                background: ['var(--gold)', 'var(--accent)', 'linear-gradient(135deg, var(--gold), var(--accent))', 'var(--gold)', 'var(--accent)'][i],
-                animationDelay: `${i * 0.1}s`
-              }}>{initial}</div>
+            {[9, 12, 25, 33, 45].map((img, i) => (
+              <img key={i} className="hero-artist-avatar"
+                src={`https://i.pravatar.cc/80?img=${img}`}
+                alt="artiste" loading="lazy"
+                style={{ animationDelay: `${i * 0.1}s` }} />
             ))}
             <span className="hero-artists-count">+100 artistes</span>
           </div>
@@ -227,17 +227,17 @@ function App() {
                   <span>Artistes populaires</span>
                 </div>
                 {[
-                  { name: 'Ko-c', genre: 'Rap', initials: 'KC', color: 'var(--gold)' },
-                  { name: 'Majo', genre: 'Afro', initials: 'MJ', color: 'var(--accent)' },
-                  { name: 'Sefa', genre: 'Hip-Hop', initials: 'SF', color: 'var(--gold)' },
+                  { name: 'Ko-c', genre: 'Rap', img: 11, badge: '🔥' },
+                  { name: 'Majo', genre: 'Afro', img: 32, badge: '💎' },
+                  { name: 'Sefa', genre: 'Hip-Hop', img: 65, badge: '🔥' },
                 ].map((a, i) => (
                   <div key={i} className="featured-artist">
-                    <div className="featured-avatar" style={{ background: a.color }}>{a.initials}</div>
+                    <img className="featured-avatar" src={`https://i.pravatar.cc/80?img=${a.img}`} alt={a.name} loading="lazy" />
                     <div className="featured-info">
                       <div className="featured-name">{a.name}</div>
                       <div className="featured-genre">{a.genre}</div>
                     </div>
-                    <div className="featured-badge">{a.genre === 'Rap' ? '🔥' : '💎'}</div>
+                    <div className="featured-badge">{a.badge}</div>
                   </div>
                 ))}
               </div>
@@ -269,8 +269,9 @@ function App() {
             <div className="split-visual">
               <div className="community-card">
                 <div className="community-avatars">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <div key={i} className="avatar" style={{ animationDelay: `${i * 0.15}s` }}></div>
+                  {[18, 23, 41, 55, 68].map((img, i) => (
+                    <img key={i} className="avatar" src={`https://i.pravatar.cc/80?img=${img}`}
+                      alt="fan" loading="lazy" style={{ animationDelay: `${i * 0.15}s` }} />
                   ))}
                 </div>
                 <p className="community-text">
@@ -326,7 +327,7 @@ function App() {
           <div className="team-grid">
             {t.team.members.map((m, i) => (
               <div key={i} className="team-card">
-                <div className="team-avatar" style={{ background: 'var(--gold)' }}>{m.initial}</div>
+                <img className="team-avatar" src={`https://i.pravatar.cc/120?img=${[20, 51, 37, 70][i]}`} alt={m.name} loading="lazy" />
                 <div className="team-name">{m.name}</div>
                 <div className="team-role">{m.role}</div>
                 <div className="team-bio">{m.bio}</div>

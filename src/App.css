@@ -236,13 +236,7 @@ h2 {
 .hero-artist-avatar {
   width: 40px; height: 40px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Anton', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--black);
+  object-fit: cover;
   border: 2px solid var(--bg-primary);
   margin-left: -8px;
   animation: avatarBounce 2s ease-in-out infinite;
@@ -342,7 +336,7 @@ h2 {
 .phone-avatar {
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--accent));
+  object-fit: cover;
   flex-shrink: 0;
 }
 .phone-name { font-weight: 700; font-size: 0.85rem; color: var(--white); }
@@ -504,13 +498,7 @@ h2 {
 .featured-avatar {
   width: 42px; height: 42px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Anton', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--black);
+  object-fit: cover;
   flex-shrink: 0;
 }
 .featured-info { flex: 1; }
@@ -561,9 +549,9 @@ h2 {
 .avatar {
   width: 44px; height: 44px;
   border-radius: 50%;
+  object-fit: cover;
   border: 2px solid var(--bg-primary);
   margin-left: -8px;
-  background: linear-gradient(135deg, var(--gold), var(--accent));
   animation: avatarBounce 2s ease-in-out infinite;
 }
 .avatar:first-child { margin-left: 0; }
@@ -628,12 +616,10 @@ h2 {
 .team-card:hover { transform: translateY(-4px); }
 
 .team-avatar {
-  width: 64px; height: 64px;
-  display: flex; align-items: center; justify-content: center;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
   margin: 0 auto 14px;
-  font-family: 'Anton', sans-serif;
-  font-size: 1.5rem;
-  color: var(--black);
 }
 .team-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
 .team-role { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
